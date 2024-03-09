@@ -15,13 +15,33 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">En esta sección, encontrarás una lista de recursos y herramientas que te ayudarán a maximizar tu experiencia con Subtitle Edit.
-
-            Subtitle Edit es un editor de subtítulos gratuito y de código abierto para Windows que te permite crear, editar y sincronizar subtítulos de una manera muy fácil y rápida.</p>
+        <p class="masthead-subheading font-weight-light mb-0">En esta sección, encontrarás una lista de herramientas que te ayudarán a maximizar tu experiencia.</p>
         <section class="page-section bg-primary text-white mb-0" id="about">
     </div>
 </header>
 {% endblock titulo%}
 
 {% block  contenido%}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Software</th>
+            <th>Características</th>
+            <th>Enlace de descarga</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for h in herramientas  %}
+        <tr>
+            <td>{{ h.id }}</td>
+            <td>{{ h.nombre }}</td>
+            <td>{{ h.caract }}</td>
+            <td>{{ h.enlace }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
 {% endblock contenido%}

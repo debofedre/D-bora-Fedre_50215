@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>TAV accesible</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -28,10 +28,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'glosario'%}">Glosarios</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'glosarios'%}">Glosarios</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'guías'%}">Guías</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'consultas'%}">Consultas</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'acrónimos'%}">Acrónimos</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'herramientas'%}">herramientas</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'acerca'%}">Acerca</a></li>
                         {% block inicio %}
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contacto</a></li>
                         {% endblock inicio %}
@@ -52,13 +53,13 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Glosario - Guías - Consultas - Herramientas</p>
+                <p class="masthead-subheading font-weight-light mb-0">Glosarios - Guías - Acrónimos - Herramientas</p>
                 <section class="page-section bg-primary text-white mb-0" id="about">
                     <div class="container">
                         <!-- About Section Content-->
                         <div class="row">
                             <div class="col-lg-4 ms-auto"><p class="lead">¿Necesitás crear subtítulos accesibles? Este sitio cuenta con una variedad de recursos editables para abordar la traducción audiovisual para personas sordas o con pérdida auditiva.</p></div>
-                            <div class="col-lg-4 me-auto"><p class="lead">Aquí te facilitamos todo tipo de recursos que te ayudarán a originar subtítulos accesibles; además, podrás editar y crear tus propios recursos para usarlos cuando más los necesites.</p></div>
+                            <div class="col-lg-4 me-auto"><p class="lead">Te facilitamos todo tipo de recursos que te ayudarán a originar subtítulos accesibles; además, podrás editar y crear tus propios recursos para usarlos cuando más los necesites.</p></div>
                         </div>
                     </div>
             </div>
@@ -70,7 +71,7 @@
         <section class="page-section" id="contact">
             <div class="container">
                 <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Escribime</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Escribinos</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -110,7 +111,7 @@
                             <!-- Message input-->
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Tu mensaje</label>
+                                <label for="message">Mensaje</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                             </div>
                             <!-- Submit success message-->
@@ -146,7 +147,7 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Ubicación</h4>
                         <p class="lead mb-0">
-                            Argentina
+                            Rosario, Santa Fe, Argentina, 2000
                         </p>
                     </div>
                     <!-- Footer Social Icons-->

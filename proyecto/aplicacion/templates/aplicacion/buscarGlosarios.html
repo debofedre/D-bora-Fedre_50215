@@ -7,7 +7,7 @@
 {% block  titulo%}
 <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
-        <h1 class="masthead-heading text-uppercase mb-0">Glosarios</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">Buscador del glosario</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -15,7 +15,7 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">En esta sección, encontrarás listas de sonidos que te ayudarán a crear subtítulos precisos.</p>
+        <p class="masthead-subheading font-weight-light mb-0">Encontrá todo lo que buscás con este buscador.</p>
         <section class="page-section bg-primary text-white mb-0" id="about">
     </div>
 </header>
@@ -23,24 +23,10 @@
 
 {% block contenido %}
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Términos en inglés</th>
-            <th>Términos en español</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for g in glosario  %}
-        <tr>
-            <td>{{ g.id }}</td>
-            <td>{{ g.termEN }}</td>
-            <td>{{ g.termSP }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
+<form action="{% url 'encontrarGlosarios' %}" method="get">
+    {% csrf_token %}
+    <p>Igresá una cadena de búsqueda: <input type="text" name="buscar" id="buscar"></p>
+    <input type="submit" value="Buscar">
+</form>
             
 {% endblock contenido %}

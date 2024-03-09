@@ -7,7 +7,7 @@
 {% block  titulo%}
 <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
-        <h1 class="masthead-heading text-uppercase mb-0">Guías</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">Glosarios</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -15,31 +15,32 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">En esta sección, encontrarás información útil sobre las normas que rigen la correcta utilización del lenguaje, así como una lista de convenciones y de errores comunes.</p>
+        <p class="masthead-subheading font-weight-light mb-0">En esta sección, encontrarás listas de sonidos que te ayudarán a crear subtítulos precisos.</p>
         <section class="page-section bg-primary text-white mb-0" id="about">
     </div>
 </header>
 {% endblock titulo%}
 
-{% block  contenido%}
+{% block contenido %}
 
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Categoría</th>
-            <th>Regla</th>
+            <th>Términos en inglés</th>
+            <th>Términos en español</th>
         </tr>
     </thead>
     <tbody>
-    {% for g in guías  %}
+    {% for g in glosarios  %}
         <tr>
             <td>{{ g.id }}</td>
-            <td>{{ g.categoría }}</td>
-            <td>{{ g.regla }}</td>
+            <td>{{ g.Término_EN }}</td>
+            <td>{{ g.Término_SP }}</td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
 
-{% endblock contenido%}
+            
+{% endblock contenido %}

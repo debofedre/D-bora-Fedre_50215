@@ -7,7 +7,7 @@
 {% block  titulo%}
 <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
-        <h1 class="masthead-heading text-uppercase mb-0">Guías</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">Glosarios (Formulario)</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -15,31 +15,18 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">En esta sección, encontrarás información útil sobre las normas que rigen la correcta utilización del lenguaje, así como una lista de convenciones y de errores comunes.</p>
+        <p class="masthead-subheading font-weight-light mb-0">Agregá términos que uses de manera frecuente al glosario. De esta manera, siempre los tendrás a mano.</p>
         <section class="page-section bg-primary text-white mb-0" id="about">
     </div>
 </header>
 {% endblock titulo%}
 
-{% block  contenido%}
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Categoría</th>
-            <th>Regla</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for g in guías  %}
-        <tr>
-            <td>{{ g.id }}</td>
-            <td>{{ g.categoría }}</td>
-            <td>{{ g.regla }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-{% endblock contenido%}
+{% block contenido %}
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table}}
+    </table>
+    <input type="submit" value="Guardar">
+</form>
+{% endblock contenido %}
