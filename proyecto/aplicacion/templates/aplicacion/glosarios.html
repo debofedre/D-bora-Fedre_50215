@@ -23,12 +23,26 @@
 
 {% block contenido %}
 
+<table>
+    <tr>
+        <td width="200"><h2>Glosarios</h2></td>
+        <td>
+            <a
+            href="{% url 'glosariosForm' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+            </a>
+        </td>  
+    </tr>
+</table>
+
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
             <th>Términos en inglés</th>
             <th>Términos en español</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -37,6 +51,21 @@
             <td>{{ g.id }}</td>
             <td>{{ g.Término_EN }}</td>
             <td>{{ g.Término_SP }}</td>
+            <td>
+                <a
+                  href="{% url 'glosariosUpdate' g.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                </a>
+                <a
+                  href="{% url 'glosariosDelete' g.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                </a>                
+            </td>            
+            
         </tr>
     {% endfor %}
     </tbody>
