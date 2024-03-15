@@ -7,6 +7,7 @@ from .forms import *
 #Para heredar de una clase maestra update
 from django.views.generic import UpdateView
 from django.views.generic import TemplateView
+from django.contrib.auth.views import PasswordChangeView
 
 
 from django.contrib.auth import login, authenticate
@@ -254,6 +255,17 @@ def login_request(request):
         user = authenticate(request, username=usuario, password=clave)
         if user is not None:
             login(request, user)
+            
+            
+              #______ Avatar
+            try:
+                avatar = Avatar.objects.get(user=request.user.id).imagen.url
+            except:
+                avatar = "/media/avatares/default.png"
+            finally:
+                request.session["avatar"] = avatar
+                
+                #________________
             return render(request, "aplicacion/index.html")
         else:
             return redirect(reverse_lazy('login'))
@@ -279,3 +291,50 @@ def register(request):
     return render(request, "aplicacion/registro.html", {"form": miForm} ) 
 
 
+@login_required
+def editProfile(request):
+    usuario = request.user
+    if request.method == "POST":
+        miForm = UserEditForm(request.POST)
+        if miForm.is_valid():
+            user = User.objects.get(username=usuario)
+            user.email = miForm.cleaned_data.get("email")
+            user.first_name = miForm.cleaned_data.get("first_name")
+            user.last_name = miForm.cleaned_data.get("last_name")
+            user.save()
+            return redirect(reverse_lazy('home'))
+    else:
+    # __ Si ingresa en el else es la primera vez 
+        miForm = UserEditForm(instance=usuario)
+
+    return render(request, "aplicacion/editarPerfil.html", {"form": miForm} )    
+   
+class CambiarClave(LoginRequiredMixin, PasswordChangeView):
+     template_name = "aplicacion/cambiar_clave.html"
+     success_url = reverse_lazy("home")
+
+@login_required
+def agregarAvatar(request):
+    if request.method == "POST":
+        miForm = AvatarForm(request.POST, request.FILES)
+
+        if miForm.is_valid():
+            usuario = User.objects.get(username=request.user)
+            #___ Borrar avatares viejos
+            avatarViejo = Avatar.objects.filter(user=usuario)
+            if len(avatarViejo) > 0:
+                for i in range(len(avatarViejo)):
+                    avatarViejo[i].delete()
+            #____________________________________________________
+            avatar = Avatar(user=usuario,
+                            imagen=miForm.cleaned_data["imagen"])
+            avatar.save()
+            imagen = Avatar.objects.get(user=usuario).imagen.url
+            request.session["avatar"] = imagen
+            
+            return redirect(reverse_lazy('home'))
+    else:
+    # __ Si ingresa en el else es la primera vez 
+        miForm = AvatarForm()
+
+    return render(request, "aplicacion/agregarAvatar.html", {"form": miForm} )   

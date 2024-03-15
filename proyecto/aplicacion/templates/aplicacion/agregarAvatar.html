@@ -2,13 +2,12 @@
 
 {% block inicio %}
 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'home' %}">Inicio</a></li>
-<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contacto</a></li>
 {% endblock inicio %}
 
 {% block  titulo%}
 <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
-        <h1 class="masthead-heading text-uppercase mb-0">Acerca</h1>
+        <h1 class="masthead-heading text-uppercase mb-0">Avatar</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -16,8 +15,18 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">¡Hola! Gracias por visitar nuestra página web.<br>Nos gustaría presentarnos: somos un equipo de traductores de inglés<br>especializados en traducción audiovisual y localización de software.</p>
+        <p class="masthead-subheading font-weight-light mb-0">.</p>
         <section class="page-section bg-primary text-white mb-0" id="about">
     </div>
 </header>
 {% endblock titulo%}
+
+{% block contenido %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table}}
+    </table>
+    <input type="submit" value="Actualizar avatar">
+</form>
+{% endblock contenido %}
