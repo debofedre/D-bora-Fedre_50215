@@ -1,7 +1,7 @@
 {% extends "aplicacion/index.html" %}
 
 {% block inicio %}
-<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'home' %}">Inicio</a></li>
+<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-2 rounded" href="{% url 'home' %}">Inicio</a></li>
 {% endblock inicio %}
 
 {% block  titulo%}
@@ -41,7 +41,7 @@
         <tr>
             <th>Id</th>
             <th>Nombre</th>
-            <th>Características</th>
+            <th>Descripción</th>
             <th>Enlace</th>
             <th>Acciones</th>
         </tr>
@@ -50,9 +50,9 @@
     {% for h in herramientas  %}
         <tr>
             <td>{{ h.id }}</td>
-            <td>{{ h.nombre }}</td>
-            <td>{{ h.caract }}</td>
-            <td>{{ h.enlace }}</td>
+            <td>{{ h.Nombre }}</td>
+            <td>{{ h.Descripción }}</td>
+            <td>{{ h.Enlace }}</td>
             <td>
                 <a
                   href="{% url 'herramientasUpdate' h.id %}"

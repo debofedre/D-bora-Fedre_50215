@@ -4,57 +4,55 @@ from aplicacion.views import *
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
-    #adicionales
+    #_____________________ Adicionales
     path('', home, name="home"),
     path('acerca/', acerca, name="acerca"),
     
-    #_________glosarios
+    #_____________________ Glosarios
     path('glosarios/', glosarios, name="glosarios"),
-    
-    #form, update y delete de glosarios
+    # __ form
     path('glosariosForm/', glosariosForm, name="glosariosForm"),
-    #path('glosariosUpdate/<id_glosarios>/', glosariosUpdate, name="glosariosUpdate"),
+    # __ update
     path('glosariosUpdate/<int:pk>/', GlosariosUpdate.as_view(), name="glosariosUpdate"),
+    # __ delete
     path('glosariosDelete/<id_glosarios>/', glosariosDelete, name="glosariosDelete"),
-    
-    #buscador de glosarios
+    # __ buscador
     path('buscarGlosarios/', buscarGlosarios, name="buscarGlosarios"),
     path('encontrarGlosarios/', encontrarGlosarios, name="encontrarGlosarios"),
     
-    #_________acrónimos
+    #_____________________ Acrónimos
     path('acrónimos/', acrónimos, name="acrónimos"),
-    
-     #form, update y delete de acrónimos
+    # __ form
     path('acrónimosForm/', acrónimosForm, name="acrónimosForm"),
-    #path('acrónimosUpdate/<id_acrónimos>/', acrónimosUpdate, name="acrónimosUpdate"),
+    # __ update
     path('acrónimosUpdate/<int:pk>/', AcrónimosUpdate.as_view(), name="acrónimosUpdate"),
+    # __ delete
     path('acrónimosDelete/<id_acrónimos>/', acrónimosDelete, name="acrónimosDelete"),
     
-    #_________herramientas
+    #_____________________ Herramientas
     path('herramientas/', herramientas, name="herramientas"),
-    
-     #form, update y delete de herramientas
+    # __ form
     path('herramientasForm/', herramientasForm, name="herramientasForm"),
-    #path('herramientasUpdate/<id_herramientas>/', herramientasUpdate, name="herramientasUpdate"),
+    # __ update
     path('herramientasUpdate/<int:pk>/', HerramientasUpdate.as_view(), name="herramientasUpdate"),
+    # __ delete
     path('herramientasDelete/<id_herramientas>/', herramientasDelete, name="herramientasDelete"),
     
-    #_________guías
+    #_____________________ Guías
     path('guías/', guías, name="guías"),
-    
-     #form, update y delete de guías
+    # __ form
     path('guíasForm/', guíasForm, name="guíasForm"),
-    #path('guíasUpdate/<id_guías>/', guíasUpdate, name="guíasUpdate"),
+    # __ update
     path('guíasUpdate/<int:pk>/', GuíasUpdate.as_view(), name="guíasUpdate"),
+    # __ delete
     path('guíasDelete/<id_guías>/', guíasDelete, name="guíasDelete"),
     
-     #____________________ Login, Logout, Registration
+    #_____________________ Login, Logout, Registration
     path('login/', login_request, name="login"),
     path('logout/', LogoutView.as_view(template_name="aplicacion/logout.html") , name="logout"),
-
     path('registrar/', register, name="registrar"),
     
-    #____________________ Edicion Perfil, Cambio de Clave, Avatar
+    #_____________________ Edicion Perfil, Cambio de Clave, Avatar
     path('perfil/', editProfile, name="perfil"),
     path('<int:pk>/password/', CambiarClave.as_view(), name="cambiar_clave"),
     path('agregar_avatar/', agregarAvatar, name="agregar_avatar"),

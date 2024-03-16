@@ -15,9 +15,9 @@ class GuíasForm(forms.Form):
     regla = forms.CharField(max_length=100, required=True)
 
 class HerramientasForm(forms.Form):
-    nombre = forms.CharField(max_length=100, required=True)
-    caract = forms.CharField(max_length=100, required=True)
-    enlace = forms.CharField(max_length=100, required=True)
+    Nombre = forms.CharField(max_length=100, required=True)
+    Descripción = forms.CharField(max_length=100, required=True)
+    Enlace = forms.CharField(max_length=100, required=True)
 
 class RegistroForm(UserCreationForm): 
     email = forms.EmailField(required=True)   

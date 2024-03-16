@@ -39,16 +39,16 @@ class Acrónimos(models.Model):
         return f"{self.acrónimo}, {self.definición}"
 
 class Herramientas(models.Model):
-    nombre = models.CharField(max_length=100)
-    caract = models.CharField(max_length=500)
-    enlace = models.CharField(max_length=100, default="Valor por defecto")
+    Nombre = models.CharField(max_length=100)
+    Descripción = models.CharField(max_length=500)
+    Enlace = models.CharField(max_length=100, default="Valor por defecto")
     
     class Meta:
         verbose_name = "Herramientas"
         verbose_name_plural = "Herramientas"
     
     def __str__(self):
-        return f"{self.nombre}, {self.caract}, {self.enlace}"
+        return f"{self.nombre}, {self.Descripción}, {self.Enlace}"
     
 class Acerca(models.Model):
     nombre = models.CharField(max_length=100)
