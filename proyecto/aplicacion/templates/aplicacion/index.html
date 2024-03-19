@@ -37,6 +37,7 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-2 rounded" href="{% url 'guías'%}">Guías</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-2 rounded" href="{% url 'acrónimos'%}">Acrónimos</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-2 rounded" href="{% url 'herramientas'%}">herramientas</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-2 rounded" href="{% url 'acerca'%}">Acerca</a></li>
                         {% block inicio %}
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-2 rounded" href="#contact">Contacto</a></li>
                         {% endblock inicio %}
@@ -113,20 +114,20 @@
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                 <label for="name">Nombre completo</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">Es obligatorio rellenar este campo</div>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">¡Uy! Esto no puede estar en blanco</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Correo</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">Es obligatorio rellenar este campo</div>
+                                <label for="email">Correo electrónico</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">¡Uy! Esto no puede estar en blanco</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">El correo electrónico no es válido </div>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
                                 <label for="message">Mensaje</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">Es obligatorio rellenar este campo</div>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">¡Uy! Esto no puede estar en blanco</div>
                             </div>
                             <!-- Submit success message-->
                             <!---->
@@ -144,7 +145,7 @@
                             <!---->
                             <!-- This is what your users will see when there is-->
                             <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">No se pudo realizar el envío</div></div>
                             <!-- Submit Button-->
                             <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Enviar</button>
                         </form>
@@ -167,16 +168,15 @@
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Redes</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" target="_blank" href="mailto:fedredebora@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" target="_blank" href="https://www.linkedin.com/in/d%C3%A9borafedre/"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" target="_blank" href="https://debofedre.github.io/Traducci-n-audiovisual-accesible/"><i class="fab fa-fw fa-dribbble"></i></a>
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4">Más recursos</h4>
                         <p class="lead mb-0">
-                            No te olvides de consultar el <a href="https://www.fundeu.es/">buscador de dudas de Fundéu</a> y el <a href="https://dle.rae.es/">diccionario de la lengua española</a> siempre que sea necesario.
+                            No te olvides de consultar el <a href="https://www.fundeu.es/" target="_blank">buscador de dudas de Fundéu</a> y el <a href="https://dle.rae.es/" target="_blank">diccionario de la lengua española</a> siempre que sea necesario.
                         </p>
                     </div>
                 </div>
